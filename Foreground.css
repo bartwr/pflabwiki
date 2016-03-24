@@ -10,11 +10,22 @@
  */
 body{
   background:#f2f2f2;
+  font-family: 'HKGroteskRegular'; 
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'HKGroteskRegular'; 
 }
 p{
   margin:1em 0px;
 }
-
+a,
+a:hover,
+a:focus{
+  color:blue;
+}
+a.new{
+  color:#FF6983;
+}
 /**
  * TOP BAR
  */
@@ -42,8 +53,8 @@ p{
     color: #000;
     top: 20px;
     text-shadow: -1px -2px 1px #FAFCFE;
-    display: block;
     width: 100%;
+    display:none;
   }
 
 #p-cactions{
@@ -105,10 +116,45 @@ h3#tagline{
   background-color: blue;
   color: white;
 }
+
+.block h2:not(.title),
+.block h3:not(#tagline){
+  margin-top:0;
+}
+.block-blue a,
+.block-blue h2,
+.block:nth-child(2) h2,
+.block:nth-child(2) a,
+.block:nth-child(2) a:hover,
+.block:nth-child(2) a:focus,
+.block:nth-child(2) .mw-editsection-bracket:first-of-type,/*brackets around 'edit'*/
+.block:nth-child(2) .mw-editsection-bracket:not(:first-of-type){
+  color:#fff;
+}
+/* brackets */
+.client-js .mw-content-ltr .mw-editsection-bracket:first-of-type,
+.client-js .mw-content-rtl .mw-editsection-bracket:not(:first-of-type){
+  color:blue;
+  margin-right:0;
+}
+.client-js .mw-content-rtl .mw-editsection-bracket:first-of-type,
+.client-js .mw-content-ltr .mw-editsection-bracket:not(:first-of-type){
+  color:blue;
+  margin-left:0;
+}
+
 .block-pink,
-.block:nth-child(3),
+.block:nth-child(4),
 .block:nth-child(6){
   background-color: pink;
+}
+
+.mw-editsection{
+  float:right;
+}
+.block-blue .mw-editsection,
+.block-blue .mw-editsection a{
+  color:#fff;
 }
 
 /**

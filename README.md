@@ -22,7 +22,7 @@ The *Foreground* skin is installed on the wiki. This repository provides overrid
 - Check if the request isn't mentioned before
 - If you've an unique idea, click on *New issue* to share it
 
-## How to contribute?
+## How to contribute to the code?
 
 1. Fork this repository
 - Make changes

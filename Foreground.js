@@ -8,6 +8,13 @@ $(function(){
   $('<script />', {'type': 'text/javascript', 'src': '//cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js'})
     .appendTo('head');
 
+  $('<link />', {
+    'rel': 'stylesheet',
+    'media': 'screen',
+    'type': 'text/css',
+    'href': 'https://fontlibrary.org/face/hk-grotesk'
+  }).appendTo('head');
+
   //+ isLanding :: void -> bool
   var isLanding = function(){
     return document.location.pathname == '/wiki/Permanent_Future_Lab_Wiki' || document.location.hostname == 'localhost'
