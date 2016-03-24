@@ -15,6 +15,9 @@ body{
 h1, h2, h3, h4, h5, h6{
   font-family: 'HKGroteskRegular'; 
 }
+h2 span{
+  display:inline;
+}
 p{
   margin:1em 0px;
 }
@@ -26,6 +29,11 @@ a:focus{
 a.new{
   color:#FF6983;
 }
+
+.row{
+  max-width:72.5em;
+}
+
 /**
  * TOP BAR
  */
@@ -77,11 +85,18 @@ a.new{
 /**
  * Content
  */
+#toc{
+  display:none;
+}
 #content{
   margin:20px 0;
 }
 h3#tagline{
   margin-bottom:2em;
+}
+/* Thumbnails at the right of the screen */
+div.tright{
+  margin-right:20px;  
 }
 
 /** Landing specific
@@ -102,17 +117,20 @@ h3#tagline{
   margin:20px;
   padding:20px;
 }
-.block:nth-child(3n+1){
+.block:first-child{
+  min-height: 294px;
+}
+.is-landing .block:nth-child(3n+1){
   flex:1 100%;
 }
-.block:nth-child(2),
-.block:nth-child(3),
-.block:nth-child(5),
-.block:nth-child(6){
+.is-landing .block:nth-child(2),
+.is-landing .block:nth-child(3),
+.is-landing .block:nth-child(5),
+.is-landing .block:nth-child(6){
   flex:1;
 }
 .block-blue,
-.block:nth-child(2){
+.is-landing .block:nth-child(2){
   background-color: blue;
   color: white;
 }
@@ -123,12 +141,12 @@ h3#tagline{
 }
 .block-blue a,
 .block-blue h2,
-.block:nth-child(2) h2,
-.block:nth-child(2) a,
-.block:nth-child(2) a:hover,
-.block:nth-child(2) a:focus,
-.block:nth-child(2) .mw-editsection-bracket:first-of-type,/*brackets around 'edit'*/
-.block:nth-child(2) .mw-editsection-bracket:not(:first-of-type){
+.is-landing .block:nth-child(2) h2,
+.is-landing .block:nth-child(2) a,
+.is-landing .block:nth-child(2) a:hover,
+.is-landing .block:nth-child(2) a:focus,
+.is-landing .block:nth-child(2) .mw-editsection-bracket:first-of-type,/*brackets around 'edit'*/
+.is-landing .block:nth-child(2) .mw-editsection-bracket:not(:first-of-type){
   color:#fff;
 }
 /* brackets */
@@ -144,17 +162,26 @@ h3#tagline{
 }
 
 .block-pink,
-.block:nth-child(4),
-.block:nth-child(6){
+.is-landing .block:nth-child(4),
+.is-landing .block:nth-child(6){
   background-color: pink;
 }
 
 .mw-editsection{
-  float:right;
+  float:none;
 }
-.block-blue .mw-editsection,
-.block-blue .mw-editsection a{
+.is-landing .block-blue .mw-editsection,
+.is-landing .block-blue .mw-editsection a{
   color:#fff;
+}
+
+/** Content page specific
+ *
+ */
+body:not(.is-landing) #bodyContent{
+  padding:40px;
+  padding-top:10px;
+  background: #fff;
 }
 
 /**

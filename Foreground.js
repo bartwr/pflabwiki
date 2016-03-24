@@ -67,7 +67,6 @@ $(function(){
 
   //+ createContentBlocks
   var reLayoutLanding = function(){
-    $('body').addClass('is-landing')
     $('#bodyContent h2').each(function(){
       var $set = $();
       $set.push(this);
@@ -88,9 +87,10 @@ $(function(){
       getHeader()
     );
     if( isLanding() ){
+      $('body').addClass('is-landing')
       reLayoutLanding();
-      hideFirstHeading();
     }
+    hideFirstHeading();
   }
 
   init();
