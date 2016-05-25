@@ -1,9 +1,9 @@
-  /**
-   * INDEX:
-   * - GLOBAL
-   * - TOP BAR
-   * - PAGE HEADER
-   */
+/**
+ * INDEX:
+ * - GLOBAL
+ * - TOP BAR
+ * - PAGE HEADER
+ */
 
   /**
    * GLOBAL
@@ -57,6 +57,23 @@
     background-position: left center;
   }
 
+  #p-cactions{
+    position:static;
+  }
+  #p-cactions .dropdown{
+    top: 50px;
+    position: absolute;
+    right: 10px;
+  }
+  #echo-notifications{
+    top: 49px;
+    right: 116px;
+    position: absolute;
+  }
+  #p-cactions .namespace.label{
+    display:none;
+  }
+
   /* Fix the position of the action dropdown */
   #p-cactions #drop1.open {
     z-index: 100000;
@@ -65,7 +82,7 @@
     position: absolute !important;
     left: initial !important;
     right: 20px !important;
-}
+  }
 
   /**
    * PAGE HEADER
@@ -123,45 +140,16 @@
       line-height: 100%;
     }
 
-  #p-cactions{
-    position:static;
-  }
-  #p-cactions .dropdown{
-    top: 50px;
-    position: absolute;
-    right: 10px;
-  }
-  #echo-notifications{
-    top: 49px;
-    right: 116px;
-    position: absolute;
-  }
-  #p-cactions .namespace.label{
-    display:none;
-  }
-
-  /**
-   * Content
-   */
-  #toc{
-    display:none;
-  }
-  #content{
-    margin:20px 0;
-  }
-  h3#tagline{
-    margin-bottom:2em;
-  }
-  /* Thumbnails at the right of the screen */
-  div.tright{
-    margin-right:20px;
-  }
-
   /** Landing specific
    *
    */
+  #bodyContent {
+    width:1200px;
+    max-width:100%;
+  }
   .is-landing #bodyContent > #mw-content-text{
     max-width: 1200px;
+    max-width:100%;
     margin-right:auto;
     margin-left:auto;
     display:flex;
@@ -169,7 +157,6 @@
     flex-flow:row wrap;
     align-items:stretch;
   }
-
   .block{
     background-color:#fff;
     margin:20px;
@@ -178,6 +165,7 @@
   .block:first-child{
     min-height: 294px;
   }
+
   .is-landing .block:nth-child(3n+1){
     flex:1 100%;
   }
@@ -204,6 +192,16 @@
     text-decoration: none;
     color: #ffffff !important;
     border-bottom: 1px solid #fff;
+  }
+
+  .is-landing .block:nth-child(3){
+    flex:2;
+  }
+  .is-landing .block:nth-child(5){
+    flex:2;
+  }
+  .is-landing .block:nth-child(6){
+    flex:1;
   }
 
   .block h2:not(.title),
@@ -233,7 +231,7 @@
   }
 
   .block-pink,
-  .is-landing .block:nth-child(4),
+  .is-landing .block:nth-child(3),
   .is-landing .block:nth-child(6){
     background-color: pink;
   }
@@ -256,6 +254,23 @@
   }
 
   /**
+   * Content
+   */
+  #toc{
+    display:none;
+  }
+  #content{
+    margin:20px 0;
+  }
+  h3#tagline{
+    margin-bottom:2em;
+  }
+  /* Thumbnails at the right of the screen */
+  div.tright{
+    margin-right:20px;  
+  }
+
+  /**
    * Footer
    */
   #footer-lastmod{
@@ -272,4 +287,23 @@
   }
   #footer-right-icons{
 
+  }
+
+  /**
+   *  VisualEditor fixes for use with Foreground skin
+   */
+  .oo-ui-barToolGroup > .oo-ui-toolGroup-tools > .oo-ui-tool > .oo-ui-tool-link{
+    padding:0 0.625em;
+  }
+  .oo-ui-popupToolGroup-handle{
+    height:100%;
+  }
+  .oo-ui-toolGroup,
+  .oo-ui-barToolGroup > .oo-ui-toolGroup-tools > .oo-ui-tool{
+    height:50px;
+  }
+  /* wrapper */
+
+  .ve-ui-surface{
+    background-color:#fff;
   }
