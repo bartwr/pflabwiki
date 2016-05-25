@@ -73,10 +73,28 @@ $(function(){
     });
   }
 
+  //+ getTwitterFeed :: ? -> JSON
+  var getTwitterFeed = function(){
+    $.getJSON('https://bartroorda.nl/pflabwiki/feed');
+  }
+
+  //+ create :: ? -> JSON
+  var createTwitterFeed = function(){
+    $.when(getTwitterFeed()).done(function(data){
+      $.each(data, function(i, tweet) {
+        console.log(tweet, tweet.media.media_url_https);
+        $('body').html(
+          $('body').html().replace('[pflab-feed]', 'Hoi')
+        );
+      });
+    });
+  }
+
   //+ init :: void -> void
   var init = function(){
     R.compose(createHeader, getHeader);
     if( isLanding() ) reLayoutLanding();
+    createTwitterFeed();
   }
 
   init();
