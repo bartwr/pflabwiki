@@ -8,18 +8,47 @@ $(function(){
   $('<script />', {'type': 'text/javascript', 'src': '//cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js'})
     .appendTo('head');
 
-  //+ isHome :: void -> bool
-  var isHome = function(){
-    return document.location.pathname == '/wiki/Permanent_Future_Lab_Wiki';
+  $('<link />', {
+    'rel': 'stylesheet',
+    'media': 'screen',
+    'type': 'text/css',
+    'href': 'https://fontlibrary.org/face/hk-grotesk'
+  }).appendTo('head');
+
+  //+ isLanding :: void -> bool
+  var isLanding = function(){
+    return document.location.pathname == '/wiki/Permanent_Future_Lab_Wiki' || document.location.hostname == 'localhost'
   }
 
   //+ createHeader :: void -> void
   var createHeader = function(url){
-    $('<header />', {
+    var title = $('#firstHeading').text();
+    var $header = $('<header />', {
       id: 'page-header',
-      html: '<h1>Permanent Future Lab</h1>',
+      html: '<h1>'+title+'</h1>',
       style: 'background-image:url("'+url+'")'
-    }).insertBefore('#page-content');
+    })
+    $header.insertBefore('#page-content');
+
+    // Create a title bar
+    var $inner = $("<div />").addClass('title-bar-inner');
+    var $titleBar = $("<div />").addClass('row').addClass('title-bar')
+      .append($("<div />").addClass('large-12').addClass('columns')
+      .append($inner.html($('#firstHeading').html())));
+
+    var oldHeight = 0;
+    setInterval(function() {
+      var newHeight = $inner.height();
+      if(oldHeight != newHeight) {
+        $titleBarBG.height(newHeight);
+        oldHeight = newHeight;
+      }
+    }, 100);
+
+    var $titleBarBG = $("<div />").addClass('title-bar-bg');
+
+    $header.append($titleBarBG);
+    $header.append($titleBar);
   }
 
   //+ getPageHeader :: void -> String
@@ -28,7 +57,7 @@ $(function(){
     // Get thumbnail URL.
     sideImg = $('#bodyContent .thumb.tright').eq(0).find('img').attr('src');
 
-    if( !sideImg || isHome() )
+    if( !sideImg || isLanding() )
       return 'https://static.miraheze.org/permanentfuturelabwiki/e/e5/PFLab-MusCom-20150803.jpg';
 
     // Remove /thumb from URL.
@@ -42,9 +71,47 @@ $(function(){
 
   }
 
+  //+ hideFirstHeading
+  var hideFirstHeading = function(){
+    $('#firstHeading').hide();
+    $('#tagline').hide();
+  }
+
+  //+ createContentBlock
+  var createContentBlock = function(el){
+    console.log(! el.prev().is('div'));
+    if( !el.prev().is('div') ){
+      el.before('</div>');
+    }
+    el.before('<div class="block">');
+  }
+
+  //+ createContentBlocks
+  var reLayoutLanding = function(){
+    $('#bodyContent h2').each(function(){
+      var $set = $();
+      $set.push(this);
+      nxt = this.nextSibling;
+      while(nxt) {
+          if(!$(nxt).is('h2')) {
+              $set.push(nxt);
+              nxt = nxt.nextSibling;
+          } else break;
+      }
+     $set.wrapAll('<div class="block" />');
+    });
+  }
+
   //+ init :: void -> void
   var init = function(){
-    createHeader(getHeader())
+    createHeader(
+      getHeader()
+    );
+    if( isLanding() ){
+      $('body').addClass('is-landing')
+      reLayoutLanding();
+    }
+    hideFirstHeading();
   }
 
   init();

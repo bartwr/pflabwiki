@@ -1,90 +1,275 @@
-/**
- * INDEX:
- * - GLOBAL
- * - TOP BAR
- * - PAGE HEADER
- */
+  /**
+   * INDEX:
+   * - GLOBAL
+   * - TOP BAR
+   * - PAGE HEADER
+   */
 
-/**
- * GLOBAL
- */
-p{
-  margin:1em 0px;
-}
-
-/**
- * TOP BAR
- */
-
-.top-bar{
-  background-color: black;
-  margin-bottom:0;
-}
-
-/**
- * PAGE HEADER
- */
-#page-header{
-  position:relative;
-  display: block;
-  width: 100%;
-  min-height:300px;
-  height: 75vh;
-  background: url("http://janineterlouw.nl/pflwiki/img/PFL_MusCom.jpg") center center no-repeat;
-  background-size: cover;
-}
-  #page-header h1{
-    position: absolute;
-    text-align: left;
-    color: #000;
-    top: 20px;
-    text-shadow: -1px -2px 1px #FAFCFE;
-    display: block;
-    /*width: 100%;*/
+  /**
+   * GLOBAL
+   */
+  body{
+    background:#f2f2f2;
+    font-family: 'HKGroteskRegular';
+  }
+  h1, h2, h3, h4, h5, h6{
+    font-family: 'HKGroteskRegular';
+  }
+  h2 span{
+    display:inline;
+  }
+  p{
+    margin:1em 0px;
+  }
+  a,
+  a:hover,
+  a:focus{
+    color:blue;
+  }
+  #bodyContent a:hover {
+    color: #EE1971;
+  }
+  a.new{
+    color:#FF6983;
   }
 
-#p-cactions{
-  position:static;
-}
-#p-cactions .dropdown{
-  top: 50px;
-  position: absolute;
-  right: 10px;
-}
-#echo-notifications{
-  top: 49px;
-  right: 116px;
-  position: absolute;
-}
-#p-cactions .namespace.label{
-  display:none;
+  .row{
+    max-width:72.5em;
+  }
+
+  /**
+   * TOP BAR
+   */
+
+  .top-bar{
+    background-color: black;
+    margin-bottom:0;
+  }
+  .top-bar .name h1 a {
+    width: 100%;
+  }
+  .top-bar .name h1 a {
+    width: 100%;
+    padding-left: 40px;
+    margin-left: 10px;
+    background-image: url('https://static.miraheze.org/permanentfuturelabwiki/4/4d/Permanent-Future-Lab-header-logo.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  /* Fix the position of the action dropdown */
+  #p-cactions #drop1.open {
+    z-index: 100000;
+    white-space: nowrap;
+    top: 90px !important;
+    position: absolute !important;
+    left: initial !important;
+    right: 20px !important;
 }
 
-/**
- * Content
- */
-#content{
-  margin:20px 0;
-}
-h3#tagline{
-  margin-bottom:2em;
-}
+  /**
+   * PAGE HEADER
+   */
+  #page-header{
+    position:relative;
+    display: block;
+    width: 100%;
+    min-height:300px;
+    height: 75vh;
+    background: url("http://janineterlouw.nl/pflwiki/img/PFL_MusCom.jpg") center center no-repeat;
+    background-size: cover;
+  }
+    #page-header h1{
+      position: absolute;
+      text-align: center;
+      color: #000;
+      top: 20px;
+      text-shadow: -1px -2px 1px #FAFCFE;
+      width: 100%;
+      display:none;
+    }
 
-/**
- * Footer
- */
-#footer-lastmod{
-  float:left;
-}
-#footer-copyright{
-  float:right;
-}
-#footer-privacy,
-#footer-about,
-#footer-disclaimer,
-#footer-footer-mobileview,
-  display:none;
-}
-#footer-right-icons{
+    .title-bar {
+      height: 100%;
+    }
 
-}
+    .title-bar-bg {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      left: 0;
+      right: 0;
+    }
+
+    .title-bar .title-bar-inner {
+      position: absolute;
+      bottom: 0;
+      font-size: 30px;
+      min-height: 50px;
+      color: #fff;
+      left: 0;
+      right: 0;
+      padding-left: 55px;
+    }
+
+    @media (max-width: 500px) {
+      .title-bar .title-bar-inner {
+        padding-left: 5px;
+      }
+    }
+
+    .title-bar .large-12 {
+      height: 100%;
+      line-height: 100%;
+    }
+
+  #p-cactions{
+    position:static;
+  }
+  #p-cactions .dropdown{
+    top: 50px;
+    position: absolute;
+    right: 10px;
+  }
+  #echo-notifications{
+    top: 49px;
+    right: 116px;
+    position: absolute;
+  }
+  #p-cactions .namespace.label{
+    display:none;
+  }
+
+  /**
+   * Content
+   */
+  #toc{
+    display:none;
+  }
+  #content{
+    margin:20px 0;
+  }
+  h3#tagline{
+    margin-bottom:2em;
+  }
+  /* Thumbnails at the right of the screen */
+  div.tright{
+    margin-right:20px;
+  }
+
+  /** Landing specific
+   *
+   */
+  .is-landing #bodyContent > #mw-content-text{
+    max-width: 1200px;
+    margin-right:auto;
+    margin-left:auto;
+    display:flex;
+    justify-content: space-around;
+    flex-flow:row wrap;
+    align-items:stretch;
+  }
+
+  .block{
+    background-color:#fff;
+    margin:20px;
+    padding:20px;
+  }
+  .block:first-child{
+    min-height: 294px;
+  }
+  .is-landing .block:nth-child(3n+1){
+    flex:1 100%;
+  }
+  .is-landing .block:nth-child(2),
+  .is-landing .block:nth-child(3),
+  .is-landing .block:nth-child(5),
+  .is-landing .block:nth-child(6){
+    flex:1;
+  }
+  .block-blue,
+  .is-landing .block:nth-child(2){
+    background-color: blue;
+    color: white;
+  }
+  
+  .is-landing .block:nth-child(2) a:link, 
+  .is-landing .block:nth-child(2) a:visited {
+    text-decoration: none;
+    border-bottom: 1px dotted #fff;
+  }
+
+  .is-landing .block:nth-child(2) a:hover, 
+  .is-landing .block:nth-child(2) a:active {
+    text-decoration: none;
+    color: #ffffff !important;
+    border-bottom: 1px solid #fff;
+  }
+
+  .block h2:not(.title),
+  .block h3:not(#tagline){
+    margin-top:0;
+  }
+  .block-blue a,
+  .block-blue h2,
+  .is-landing .block:nth-child(2) h2,
+  .is-landing .block:nth-child(2) a,
+  .is-landing .block:nth-child(2) a:hover,
+  .is-landing .block:nth-child(2) a:focus,
+  .is-landing .block:nth-child(2) .mw-editsection-bracket:first-of-type,/*brackets around 'edit'*/
+  .is-landing .block:nth-child(2) .mw-editsection-bracket:not(:first-of-type){
+    color:#fff;
+  }
+  /* brackets */
+  .client-js .mw-content-ltr .mw-editsection-bracket:first-of-type,
+  .client-js .mw-content-rtl .mw-editsection-bracket:not(:first-of-type){
+    color:blue;
+    margin-right:0;
+  }
+  .client-js .mw-content-rtl .mw-editsection-bracket:first-of-type,
+  .client-js .mw-content-ltr .mw-editsection-bracket:not(:first-of-type){
+    color:blue;
+    margin-left:0;
+  }
+
+  .block-pink,
+  .is-landing .block:nth-child(4),
+  .is-landing .block:nth-child(6){
+    background-color: pink;
+  }
+
+  .mw-editsection{
+    float:none;
+  }
+  .is-landing .block-blue .mw-editsection,
+  .is-landing .block-blue .mw-editsection a{
+    color:#fff;
+  }
+
+  /** Content page specific
+   *
+   */
+  body:not(.is-landing) #bodyContent{
+    padding:40px;
+    padding-top:10px;
+    background: #fff;
+  }
+
+  /**
+   * Footer
+   */
+  #footer-lastmod{
+    float:left;
+  }
+  #footer-copyright{
+    float:right;
+  }
+  #footer-privacy,
+  #footer-about,
+  #footer-disclaimer,
+  #footer-footer-mobileview{
+    display:none;
+  }
+  #footer-right-icons{
+
+  }
