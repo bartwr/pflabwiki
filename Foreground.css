@@ -102,8 +102,13 @@ div.tright{
 /** Landing specific
  *
  */
+#bodyContent {
+  width:1200px;
+  max-width:100%;
+}
 .is-landing #bodyContent > #mw-content-text{
-  max-width: 1200px;
+  width: 1200px;
+  max-width:100%;
   margin-right:auto;
   margin-left:auto;
   display:flex;
@@ -134,6 +139,15 @@ div.tright{
   background-color: blue;
   color: white;
 }
+.is-landing .block:nth-child(3){
+  flex:2;
+}
+.is-landing .block:nth-child(5){
+  flex:2;
+}
+.is-landing .block:nth-child(6){
+  flex:1;
+}
 
 .block h2:not(.title),
 .block h3:not(#tagline){
@@ -162,7 +176,7 @@ div.tright{
 }
 
 .block-pink,
-.is-landing .block:nth-child(4),
+.is-landing .block:nth-child(3),
 .is-landing .block:nth-child(6){
   background-color: pink;
 }
